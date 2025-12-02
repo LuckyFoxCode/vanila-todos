@@ -1,0 +1,10 @@
+node_modules
+dist
+
+yarn.lock
+yarn-error.log
+
+DS_Store
+Thumbs.db
+.env
+.env.example
