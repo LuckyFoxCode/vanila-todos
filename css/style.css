@@ -1,3 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 @import "./base.css";
+
+.todo-form {
+  padding: 1rem;
+}
+.todo-form__input {
+  border-color: var(--dark);
+  outline: none;
+  margin-right: 10px;
+  padding-block: 5px;
+  padding-inline: 10px;
+  transition: var(--transition-all);
+
+  &:focus {
+    border-color: var(--primary);
+  }
+}
+
+.todo-form__input--error {
+  border-color: var(--danger);
+}
