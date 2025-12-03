@@ -3,11 +3,21 @@
 const app = {
   state: [],
   init() {
+    this.renderApp();
     this.renderTodoForm();
     this.renderTodoList();
     this.addTodoTask();
   },
+  renderApp() {
+    const root = document.createElement("div");
+    root.classList.add("todo");
+
+    this.root = root;
+    document.body.appendChild(root);
+  },
   renderTodoForm() {
+    const { root } = this;
+
     const form = document.createElement("form");
     form.classList.add("todo-form");
 
@@ -37,7 +47,7 @@ const app = {
     this.button = button;
 
     form.append(input, button);
-    document.body.appendChild(form);
+    root.appendChild(form);
   },
   renderTodoList() {
     const list = document.createElement("ul");
@@ -60,7 +70,7 @@ const app = {
     description.textContent = title;
 
     const checkbox = document.createElement("input");
-    checkbox.classList.add("todo-list__checkbox");
+    checkbox.classList.add("todo-list__item-checkbox");
     checkbox.type = "checkbox";
     checkbox.checked = completed;
     checkbox.addEventListener("change", () => {
