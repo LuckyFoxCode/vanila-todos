@@ -2,22 +2,81 @@
 
 @import "./base.css";
 
-.todo-form {
+.todo {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--background);
+  margin: 0 auto;
   padding: 1rem;
 }
-.todo-form__input {
-  border-color: var(--dark);
-  outline: none;
-  margin-right: 10px;
-  padding-block: 5px;
-  padding-inline: 10px;
-  transition: var(--transition-all);
 
-  &:focus {
-    border-color: var(--primary);
-  }
+/* ---- FORM ---- */
+.todo-form {
+  display: flex;
+  gap: 10px;
+}
+
+.todo-form__input,
+.todo-form__button {
+  font-size: 1rem;
+  color: var(--white);
+  background-color: var(--secondary);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  outline: none;
+  padding-block: 10px;
+  padding-inline: 15px;
+  transition: color, background-color 0.3s ease-in-out;
+}
+
+.todo-form__input:focus,
+.todo-form__button:focus {
+  border-color: var(--primary);
+}
+
+.todo-form__input {
+  flex: 1;
+}
+
+.todo-form__input::placeholder {
+  color: var(--light);
 }
 
 .todo-form__input--error {
   border-color: var(--danger);
+}
+
+.todo-form__button {
+  cursor: pointer;
+}
+
+.todo-form__button:hover {
+  background-color: var(--accent);
+}
+
+/* ---- LIST ---- */
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.todo-list__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 5px;
+  background-color: var(--secondary);
+  padding: 16px;
+}
+
+/* ---- MEDIA ---- */
+/* ---- 1440px ---- */
+@media (min-width: 1440px) {
+  .todo {
+    border-radius: 10px;
+  }
 }
