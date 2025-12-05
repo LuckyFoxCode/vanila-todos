@@ -78,6 +78,11 @@
   flex: 1;
 }
 
+.todo-list__item.completed .todo-list__item-description {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
 .todo-list__item-remove {
   font-size: 16px;
   border-radius: 5px;

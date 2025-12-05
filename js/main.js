@@ -76,8 +76,11 @@ const app = {
     checkbox.type = "checkbox";
     checkbox.checked = completed;
 
+    if (completed) item.classList.add("completed");
+
     checkbox.addEventListener("change", () => {
       todo.completed = checkbox.checked;
+      this.render();
     });
 
     const deleteBtn = document.createElement("button");
