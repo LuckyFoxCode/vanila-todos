@@ -9,6 +9,7 @@ const app = {
     this.renderTodoForm();
     this.renderTodoList();
     this.handleAddTodoSubmit();
+    this.renderInfo();
     this.render();
   },
   renderApp() {
@@ -130,6 +131,31 @@ const app = {
       }
     });
   },
+  renderInfo() {
+    const { list } = this;
+    if (!this.info) {
+      const info = document.createElement("div");
+      info.classList.add("todo-info");
+
+      const text = document.createElement("span");
+      info.append(text);
+
+      this.info = info;
+      this.counterText = text;
+
+      list.insertAdjacentElement("afterend", info);
+    }
+
+    const activeCount = this.state.tasks.filter(
+      (task) => !task.completed
+    ).length;
+
+    if (!activeCount) {
+      this.counterText.textContent = "Nothing to do — enjoy your day 😎";
+    } else {
+      this.counterText.textContent = `${activeCount} left tasks.`;
+    }
+  },
   render() {
     const { list, state } = this;
 
@@ -138,6 +164,8 @@ const app = {
       const item = this.createTodoItem(todo);
       list.append(item);
     });
+
+    this.renderInfo();
   },
 };
 
